@@ -154,6 +154,17 @@ FocusScope {
                 focus: false
                 onFocusChanged: { if(focus) previousLastplayed = lastplayed_left }
 
+                MouseArea {
+					anchors.fill: parent
+					onClicked: {
+						if (lastplayed_left.focus) {
+							api.memory.set("currentMenuIndex", currentMenuIndex);
+							currentGame.launch();}
+						else
+							lastplayed_left.focus = true
+					}
+				}
+
                 Keys.onPressed: {
                     if (event.isAutoRepeat) {
                         return;
@@ -210,6 +221,18 @@ FocusScope {
                         }
                         visible: status == Loader.Ready
                     }
+
+                    MouseArea {
+						anchors.fill: parent
+						onClicked: {
+							if (lastplayed_right.focus && isSelected) {
+								api.memory.set("currentMenuIndex", currentMenuIndex);
+								currentGame.launch();}
+							else
+								lastplayed_right.focus = true
+								lastplayed_right.currentIndex = index;
+						}
+					}
                 }
                 highlightMoveDuration: vpx(150)
                 focus: false
@@ -328,6 +351,18 @@ FocusScope {
                     }
                     visible: status === Loader.Ready
                 }
+
+                MouseArea {
+					anchors.fill: parent
+					onClicked: {
+						if (favorites.focus && isSelected) {
+							api.memory.set("currentMenuIndex", currentMenuIndex);
+							currentGame.launch();}
+						else
+							favorites.focus = true
+							favorites.currentIndex = index;
+					}
+				}
             }
 
             clip: currentFavoritesIndex == 0 || currentFavoritesIndex == maximumFavoritesShown ? false : true
@@ -386,6 +421,14 @@ FocusScope {
             front_color: "transparent"
             back_color: "transparent"
             input_button: osdScheme[controlScheme].BTND
+            MouseArea {
+				anchors.fill: parent
+				onClicked: {
+					playPlaySound();
+                    api.memory.set("currentMenuIndex", currentMenuIndex);
+                    currentGame.launch();
+				}
+			}
         }
     }
 
