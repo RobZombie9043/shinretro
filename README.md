@@ -10,8 +10,9 @@ Forked from [Valentin MEZIN](https://github.com/valsou)'s theme [neoretrō](http
 Modified for touch input control (WIP)
 - Home, Collections, Games pages - done
 - Settings page - to do
-- Header - done
-- Footer - to do
+- Header controls - done
+- Footer controls - to do
+- Filter controls - to do
 - Navigation Sounds - to do
   
 ***
