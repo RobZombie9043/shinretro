@@ -12,6 +12,7 @@ Modified for touch input control (WIP)
 - Settings page - to do
 - Header - done
 - Footer - to do
+- Navigation Sounds - to do
   
 ***
 
