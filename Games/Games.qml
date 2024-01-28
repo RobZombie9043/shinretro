@@ -590,8 +590,8 @@ FocusScope {
 
                 clip: true
 
-                preferredHighlightBegin: height
-                preferredHighlightEnd: height * 0.5
+                preferredHighlightBegin: height * 0
+                preferredHighlightEnd: height * 1
 
                 currentIndex: currentGameIndex
                 onCurrentIndexChanged: currentGameIndex = currentIndex
@@ -636,9 +636,19 @@ FocusScope {
                             visible: status === Loader.Ready
                         }
                     }
+                    MouseArea {
+						anchors.fill: parent
+						onClicked: {
+							if (isCurrentItem) {
+								saveCurrentState(currentGameIndex);
+								currentGame.launch();}
+							else
+								gv_games.currentIndex = index;
+						}
+					}
                 }
 
-                highlightRangeMode: GridView.StrictlyEnforceRange
+                highlightRangeMode: GridView.NoHighlightRange
                 snapMode: GridView.SnapToRow
                 highlightFollowsCurrentItem: true
 
