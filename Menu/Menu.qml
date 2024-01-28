@@ -77,10 +77,26 @@ FocusScope {
                             color: colorScheme[theme].accentalt
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.left: parent.left
+
+                            MouseArea {
+								anchors.fill: parent;
+								onClicked: {
+									if (currentMenuIndex > 0)
+									currentMenuIndex--;
+									return;
+								}
+							}
                         }
                     }
 
-                    delegate: MenuItems {}
+                    delegate: MenuItems {
+                       MouseArea {
+							anchors.fill: parent;
+							onClicked: {
+							currentMenuIndex = index;
+							}
+						} 
+                    }
 
                     footer: Item {
                         width: vpx(40)
@@ -100,6 +116,15 @@ FocusScope {
                             color: colorScheme[theme].accentalt
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.right: parent.right
+
+                            MouseArea {
+								anchors.fill: parent;
+								onClicked: {
+									if (currentMenuIndex < (dataMenu.length - 1))
+									currentMenuIndex++;
+									return;
+								}
+							}
                         }
                     }
 
@@ -148,6 +173,15 @@ FocusScope {
                         color: colorScheme[theme].accentalt
                         visible: root.state === "games" && gamesPgUpDownFunction === 'Collections'
                         anchors.verticalCenter: parent.verticalCenter
+
+                        MouseArea {
+							anchors.fill: parent;
+							onClicked: {
+								if (currentMenuIndex > 0)
+								currentCollectionIndex--;
+								return;
+							}
+						}
                     }
                 }
 
@@ -261,6 +295,15 @@ FocusScope {
                         visible: root.state === "games" && gamesPgUpDownFunction === 'Collections'
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.right: parent.right
+
+                        MouseArea {
+							anchors.fill: parent;
+							onClicked: {
+								if (currentMenuIndex > 0)
+								currentCollectionIndex++;
+								return;
+							}
+						}
                     }
                 }
                 visible: ["home","games"].includes(root.state)
