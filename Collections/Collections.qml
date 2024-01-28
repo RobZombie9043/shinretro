@@ -102,10 +102,11 @@ FocusScope {
             focus: collections.focus
             model: allCollections
             currentIndex: currentCollectionIndex
+            onCurrentIndexChanged: currentCollectionIndex = currentIndex
             delegate: CollectionsItems {}
             snapMode: PathView.SnapOneItem
             highlightMoveDuration: 100
-            highlightRangeMode: PathView.ApplyRange
+            highlightRangeMode: PathView.StrictlyEnforceRange
 
             pathItemCount: 10
             path: Path {
@@ -144,6 +145,23 @@ FocusScope {
 
             preferredHighlightBegin: 0.32
             preferredHighlightEnd: preferredHighlightBegin
+
+            Item {
+				width: baseItemWidth * 2
+				height: pv_collections.height * 1.17
+				
+				anchors.left: parent.left
+				anchors.leftMargin: baseItemWidth * 1.45
+				anchors.top: parent.top
+				anchors.topMargin: pv_collections.height * -0.085
+				
+				MouseArea {
+				anchors.fill: parent;
+				onClicked: {
+					currentMenuIndex = 3;
+					}
+				}
+			}
 
             Keys.onPressed: {
                 if (api.keys.isAccept(event) && !event.isAutoRepeat) {
