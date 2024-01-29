@@ -195,13 +195,13 @@ FocusScope {
                 height: itemheight
 
                 MouseArea {
-					anchors.fill: parent
-					onClicked: {
-						playNavSound();
-						pagelist.currentIndex = index;
-						pagelist.focus = true; 
-					}
-				}
+			anchors.fill: parent
+			onClicked: {
+				playNavSound();
+				pagelist.currentIndex = index;
+				pagelist.focus = true; 
+			}
+		}
 
                 // Page name
                 Text {
@@ -308,17 +308,18 @@ FocusScope {
                 height: itemheight
 
                 MouseArea {
-					anchors.fill: parent
-					onClicked: {
-						if (selected) {
-							playAcceptSound();
-							nextSetting();
-							saveSetting();}
-						else
-							settingsList.focus = true; 
-							settingsList.currentIndex = index;
-					}
-				}
+			anchors.fill: parent
+			onClicked: {
+				if (selected) {
+					playAcceptSound();
+					nextSetting();
+					saveSetting();}
+				else
+					playNavSound();
+					settingsList.focus = true; 
+					settingsList.currentIndex = index;
+			}
+		}
 
                 // Setting name
                 Text {
