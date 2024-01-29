@@ -155,15 +155,17 @@ FocusScope {
                 onFocusChanged: { if(focus) previousLastplayed = lastplayed_left }
 
                 MouseArea {
-					anchors.fill: parent
-					onClicked: {
-						if (lastplayed_left.focus) {
-							api.memory.set("currentMenuIndex", currentMenuIndex);
-							currentGame.launch();}
-						else
-							lastplayed_left.focus = true
-					}
-				}
+			anchors.fill: parent
+			onClicked: {
+				if (lastplayed_left.focus) {
+					playPlaySound();
+					api.memory.set("currentMenuIndex", currentMenuIndex);
+					currentGame.launch();}
+				else
+					playNavSound();
+					lastplayed_left.focus = true
+			}
+		}
 
                 Keys.onPressed: {
                     if (event.isAutoRepeat) {
@@ -222,17 +224,19 @@ FocusScope {
                         visible: status == Loader.Ready
                     }
 
-                    MouseArea {
-						anchors.fill: parent
-						onClicked: {
-							if (lastplayed_right.focus && isSelected) {
-								api.memory.set("currentMenuIndex", currentMenuIndex);
-								currentGame.launch();}
-							else
-								lastplayed_right.focus = true
-								lastplayed_right.currentIndex = index;
-						}
-					}
+			MouseArea {
+				anchors.fill: parent
+				onClicked: {
+					if (lastplayed_right.focus && isSelected) {
+						playPlaySound();
+						api.memory.set("currentMenuIndex", currentMenuIndex);
+						currentGame.launch();}
+					else
+						playNavSound();
+						lastplayed_right.focus = true
+						lastplayed_right.currentIndex = index;
+				}
+			}
                 }
                 highlightMoveDuration: vpx(150)
                 focus: false
@@ -353,16 +357,18 @@ FocusScope {
                 }
 
                 MouseArea {
-					anchors.fill: parent
-					onClicked: {
-						if (favorites.focus && isSelected) {
-							api.memory.set("currentMenuIndex", currentMenuIndex);
-							currentGame.launch();}
-						else
-							favorites.focus = true
-							favorites.currentIndex = index;
-					}
-				}
+			anchors.fill: parent
+			onClicked: {
+				if (favorites.focus && isSelected) {
+					playPlaySound();
+					api.memory.set("currentMenuIndex", currentMenuIndex);
+					currentGame.launch();}
+				else
+					playNavSound();
+					favorites.focus = true
+					favorites.currentIndex = index;
+			}
+		}
             }
 
             clip: currentFavoritesIndex == 0 || currentFavoritesIndex == maximumFavoritesShown ? false : true
