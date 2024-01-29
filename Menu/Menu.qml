@@ -79,23 +79,25 @@ FocusScope {
                             anchors.left: parent.left
 
                             MouseArea {
-								anchors.fill: parent;
-								onClicked: {
-									if (currentMenuIndex > 0)
-									currentMenuIndex--;
-									return;
-								}
-							}
+				anchors.fill: parent;
+				onClicked: {
+					playPage2Sound();	
+					if (currentMenuIndex > 0)
+						currentMenuIndex--;
+						return;
+				}
+			    }
                         }
                     }
 
                     delegate: MenuItems {
-                       MouseArea {
-							anchors.fill: parent;
-							onClicked: {
-							currentMenuIndex = index;
-							}
-						} 
+                	MouseArea {
+				anchors.fill: parent;
+				onClicked: {
+					playPageSound();
+					currentMenuIndex = index;
+				}
+			} 
                     }
 
                     footer: Item {
@@ -118,13 +120,14 @@ FocusScope {
                             anchors.right: parent.right
 
                             MouseArea {
-								anchors.fill: parent;
-								onClicked: {
-									if (currentMenuIndex < (dataMenu.length - 1))
-									currentMenuIndex++;
-									return;
-								}
-							}
+				anchors.fill: parent;
+				onClicked: {
+				playPageSound();
+				if (currentMenuIndex < (dataMenu.length - 1))
+					currentMenuIndex++;
+					return;
+				}
+			    }
                         }
                     }
 
@@ -175,13 +178,14 @@ FocusScope {
                         anchors.verticalCenter: parent.verticalCenter
 
                         MouseArea {
-							anchors.fill: parent;
-							onClicked: {
-								if (currentMenuIndex > 0)
-								currentCollectionIndex--;
-								return;
-							}
-						}
+				anchors.fill: parent;
+				onClicked: {
+					playCollection2Sound();
+					if (currentMenuIndex > 0)
+						currentCollectionIndex--;
+						return;
+				}
+			}
                     }
                 }
 
@@ -297,13 +301,14 @@ FocusScope {
                         anchors.right: parent.right
 
                         MouseArea {
-							anchors.fill: parent;
-							onClicked: {
-								if (currentMenuIndex > 0)
-								currentCollectionIndex++;
-								return;
-							}
-						}
+				anchors.fill: parent;
+				onClicked: {
+					playCollectionSound();
+					if (currentMenuIndex > 0)
+						currentCollectionIndex++;
+						return;
+				}
+			}
                     }
                 }
                 visible: ["home","games"].includes(root.state)
