@@ -636,16 +636,18 @@ FocusScope {
                             visible: status === Loader.Ready
                         }
                     }
-                    MouseArea {
-						anchors.fill: parent
-						onClicked: {
-							if (isCurrentItem) {
-								saveCurrentState(currentGameIndex);
-								currentGame.launch();}
-							else
-								gv_games.currentIndex = index;
-						}
-					}
+                	MouseArea {
+				anchors.fill: parent
+				onClicked: {
+					if (isCurrentItem) {
+						playPlaySound();
+						saveCurrentState(currentGameIndex);
+						currentGame.launch();}
+					else
+						playNavSound();
+						gv_games.currentIndex = index;
+				}
+			}
                 }
 
                 highlightRangeMode: GridView.NoHighlightRange
