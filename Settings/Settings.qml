@@ -194,6 +194,15 @@ FocusScope {
                 width: ListView.view.width
                 height: itemheight
 
+                MouseArea {
+					anchors.fill: parent
+					onClicked: {
+						playNavSound();
+						pagelist.currentIndex = index;
+						pagelist.focus = true; 
+					}
+				}
+
                 // Page name
                 Text {
                     id: pageNameText
@@ -259,6 +268,9 @@ FocusScope {
         spacing: vpx(0)
         orientation: ListView.Vertical
 
+        currentIndex: currentSettingsIndex
+        onCurrentIndexChanged: currentSettingsIndex = currentIndex
+
         preferredHighlightBegin: settingsList.height / 2 - itemheight
         preferredHighlightEnd: settingsList.height / 2
         highlightRangeMode: ListView.ApplyRange
@@ -294,6 +306,19 @@ FocusScope {
 
                 width: ListView.view.width
                 height: itemheight
+
+                MouseArea {
+					anchors.fill: parent
+					onClicked: {
+						if (selected) {
+							playAcceptSound();
+							nextSetting();
+							saveSetting();}
+						else
+							settingsList.focus = true; 
+							settingsList.currentIndex = index;
+					}
+				}
 
                 // Setting name
                 Text {
