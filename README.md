@@ -8,8 +8,7 @@ A flexible and tweakable theme for [Pegasus Frontend](http://pegasus-frontend.or
 Forked from [Valentin MEZIN](https://github.com/valsou)'s theme [neoretrō](https://github.com/valsou/neoretro) v0.131 and [Luciano Oliveira](https://github.com/luciano-work)'s dark variant.
 
 Modified for touch input control (WIP)
-- Home, Collections, Games pages - done
-- Settings page - to do
+- Settings, Home, Collections, Games pages - done
 - Header controls - done
 - Footer controls - to do
 - Filter controls - to do
