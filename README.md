@@ -12,7 +12,7 @@ Modified for touch input control (WIP)
 - Header controls - done
 - Footer controls - to do
 - Filter controls - to do
-- Navigation Sounds - to do
+- Navigation Sounds - done
   
 ***
 
