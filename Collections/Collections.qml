@@ -158,6 +158,7 @@ FocusScope {
 				MouseArea {
 				anchors.fill: parent;
 				onClicked: {
+					playAcceptSound();
 					currentMenuIndex = 3;
 					}
 				}
