@@ -839,6 +839,12 @@ FocusScope {
                     front_color: colorScheme[theme].cancel.replace(/#/g, "#26");
                     back_color: colorScheme[theme].cancel.replace(/#/g, "#26");
                     input_button: osdScheme[controlScheme].BTNR
+		    TapHandler {
+			onTapped: {
+				playBackSound();
+				currentMenuIndex = 2;
+			}
+		     }	
                 }
 
                 Controls {
@@ -853,6 +859,12 @@ FocusScope {
                     front_color: colorScheme[theme].filters.replace(/#/g, "#26");
                     back_color: colorScheme[theme].filters.replace(/#/g, "#26");
                     input_button: osdScheme[controlScheme].BTNU
+		    TapHandler {
+			onTapped: {
+				playBackSound();
+				filter.focus = true;
+			}
+		     }
                 }
 
                 Controls {
@@ -866,6 +878,13 @@ FocusScope {
                     input_button: osdScheme[controlScheme].BTNL
 
                     visible: currentGame !== null
+		    TapHandler {
+			onTapped: {
+				if (currentGame !== null) {
+                            		currentGame.favorite = !currentGame.favorite;
+				}
+			}
+		     }
                 }
 
                 Controls {
@@ -877,6 +896,13 @@ FocusScope {
                     front_color: colorScheme[theme].sorters.replace(/#/g, "#26");
                     back_color: colorScheme[theme].sorters.replace(/#/g, "#26");
                     input_button: osdScheme[controlScheme].BTNSelect
+		    TapHandler {
+			onTapped: {
+				playBackSound();
+				sortIndex = (sortIndex + 1) % sortFields.length;
+				saveSortIndex(sortIndex);
+			}
+		     }
                 }
 
             }
