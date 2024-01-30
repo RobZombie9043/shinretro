@@ -293,6 +293,12 @@ FocusScope {
             front_color: colorScheme[theme].accepted.replace(/#/g, "#33");
             back_color: colorScheme[theme].accepted.replace(/#/g, "#33");
             input_button: osdScheme[controlScheme].BTND
+	    TapHandler {
+		onTapped: {
+			playAcceptSound();
+                    	currentMenuIndex = 3;
+		}
+	    }
         }
 
         Controls {
@@ -305,6 +311,17 @@ FocusScope {
             back_color: colorScheme[theme].filters.replace(/#/g, "#26");
             input_button: osdScheme[controlScheme].BTNU
             visible: collectionTypes.length > 1
+	    TapHandler {
+		onTapped: {
+			if (collectionTypes.length > 1) {
+				var index = collectionTypes.indexOf(collectionType) + 1;
+				currentCollectionIndex = 0;
+				collectionType = (index < collectionTypes.length) ? collectionTypes[index] : collectionTypes[0];
+				currentCollectionIndex = api.memory.get("currentCollectionIndex-" + collectionType) || 0;
+				games.currentGameIndex = 0;
+			}
+		}
+	    }
         }
 
         Controls {
@@ -316,6 +333,12 @@ FocusScope {
             front_color: colorScheme[theme].cancel.replace(/#/g, "#26");
             back_color: colorScheme[theme].cancel.replace(/#/g, "#26");
             input_button: osdScheme[controlScheme].BTNR
+	    TapHandler {
+		onTapped: {
+			playBackSound();
+                    	currentMenuIndex = 1;
+		}
+	    }
         }
     }
 
