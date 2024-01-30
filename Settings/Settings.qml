@@ -434,6 +434,17 @@ FocusScope {
             front_color: colorScheme[theme].accepted.replace(/#/g, "#33");
             back_color: colorScheme[theme].accepted.replace(/#/g, "#33");
             input_button: osdScheme[controlScheme].BTND
+	    TapHandler {
+		onTapped: {
+			if (settingsList.focus != true) {
+				playNavSound();
+				settingsList.focus = true;}
+			else
+				playAcceptSound();
+				nextSetting();					// this doesn't work ... how to call function from ListView?
+				saveSetting();					// this doesn't work ... how to call function from ListView?
+		}
+	     }
         }
 
         Controls {
@@ -445,6 +456,15 @@ FocusScope {
             front_color: colorScheme[theme].cancel.replace(/#/g, "#26");
             back_color: colorScheme[theme].cancel.replace(/#/g, "#26");
             input_button: osdScheme[controlScheme].BTNR
+	    TapHandler {
+		onTapped: {
+			if (settingsList.focus != true) {
+				currentMenuIndex = 1;}
+			else
+				playNavSound();
+                        	pagelist.focus = true;
+		}
+	     }
         }
     }
 
