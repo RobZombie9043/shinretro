@@ -427,14 +427,13 @@ FocusScope {
             front_color: "transparent"
             back_color: "transparent"
             input_button: osdScheme[controlScheme].BTND
-            MouseArea {
-				anchors.fill: parent
-				onClicked: {
-					playPlaySound();
-                    api.memory.set("currentMenuIndex", currentMenuIndex);
-                    currentGame.launch();
-				}
-			}
+            TapHandler {
+		onTapped: {
+			playPlaySound();
+                    	api.memory.set("currentMenuIndex", currentMenuIndex);
+                    	currentGame.launch();
+		}
+	    }
         }
     }
 
