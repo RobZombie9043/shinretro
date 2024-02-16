@@ -8,6 +8,7 @@ A flexible and tweakable theme for [Pegasus Frontend](http://pegasus-frontend.or
 Forked from [Valentin MEZIN](https://github.com/valsou)'s theme [neoretrō](https://github.com/valsou/neoretro) v0.131 and [Luciano Oliveira](https://github.com/luciano-work)'s dark variant.
 
 Modified to work with touch controls.
+
 To-do's
 - fix transitions when tapping on header section titles
   
