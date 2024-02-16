@@ -12,7 +12,7 @@ Forked from [Valentin MEZIN](https://github.com/valsou)'s theme [neoretrō](http
 Modified to work with touch controls.
 
 To-do's
-- fix transitions when tapping on header section titles
+[ ] fix transitions when tapping on header section titles
   
 ***
 
